@@ -34,7 +34,7 @@
           </li>
         </ul>
 
-        <ul class="navbar-nav navbar-right" *ngIf="!identity && !identity.name">
+        <ul class="navbar-nav navbar-right" *ngIf="!identity || !identity.name">
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/login']">Login</a>
           </li>
@@ -45,10 +45,12 @@
 
         <ul class="navbar-nav navbar-right" *ngIf="identity && identity.name">
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile of {{ identity.name }}</a>
+            <a class="nav-link" [routerLink]="['/admin']"
+              >Profile of {{ identity.name }}</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Exit</a>
+            <a class="nav-link" [routerLink]="['/logout/1']">Exit</a>
           </li>
         </ul>
       </div>

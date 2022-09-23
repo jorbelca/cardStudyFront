@@ -7,7 +7,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { UserAdminComponent } from './components/user-admin/user-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http'
     RegisterComponent,
     HomeComponent,
     ErrorComponent,
+    UserAdminComponent,
   ],
   imports: [
     BrowserModule,
