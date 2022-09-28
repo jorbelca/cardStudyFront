@@ -9,6 +9,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserAdminComponent } from './components/user-admin/user-admin.component';
+import { TopicsComponent } from './components/topics/topics.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { UserAdminComponent } from './components/user-admin/user-admin.component
     HomeComponent,
     ErrorComponent,
     UserAdminComponent,
+    TopicsComponent,
   ],
   imports: [
     BrowserModule,

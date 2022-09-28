@@ -27,7 +27,7 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Topics</a>
+            <a class="nav-link" [routerLink]="['/topics']">Topics</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Questions</a>
@@ -60,6 +60,10 @@
 
   <!-- CONTENIDO -->
   <router-outlet> </router-outlet>
+
+  <footer>
+    Jorbelca &copy; <a href="https://github.com/jorbelca">Github</a>
+  </footer>
 
   <!-- Cierre Contenedor Principal -->
 </div>
