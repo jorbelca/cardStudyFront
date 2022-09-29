@@ -1,1 +1,39 @@
-<p>topics works!</p>
+<h1>{{ page_title }}</h1>
+<div class="alert alert-success col-md-7" *ngIf="status == 'success'">
+  The modifications has been saved correctly,
+</div>
+
+<div class="alert alert-danger col-md-7" *ngIf="status == 'error'">
+  The modifications couldn't been saved correctly
+</div>
+
+<div>
+  <li *ngFor="let topic of topics">
+    {{ topic.topic_name }}
+  </li>
+</div>
+<!-- Topics Form  -->
+<form class="col-md-7 ml-0 pl-0" #topicForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group mb-3">
+    <label for="name" class="col-form-label">Name</label>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      #name="ngModel"
+      [(ngModel)]="topic.topic_name"
+      required
+    />
+    <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block"
+      >The name of the topic is not valid</small
+    >
+  </div>
+  <div class="form-group">
+    <input
+      type="submit"
+      value="Send"
+      class="btn btn-success"
+      [disabled]="topicForm.invalid"
+    />
+  </div>
+</form>

@@ -1,18 +1,23 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import { Topic } from './models/topic';
+import { TopicService } from './services/topic.service';
 import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [UserService]
+  providers: [UserService, TopicService]
 })
 export class AppComponent implements OnInit, DoCheck {
   public title = 'cardStudy';
   public identity: any = ''
   public token: any = ''
+
+
   constructor(
-    public _userService: UserService
+    private _userService: UserService,
+    
   ) {
     this.loadUser()
   }
@@ -27,4 +32,6 @@ export class AppComponent implements OnInit, DoCheck {
     this.identity = this._userService.getIdentity()
     this.token = this._userService.getToken()
   }
+
+  
 }

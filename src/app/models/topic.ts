@@ -1,6 +1,6 @@
 export class Topic {
   constructor(
     public id: number,
-    public name: string
+    public topic_name: string
   ) { }
 }
