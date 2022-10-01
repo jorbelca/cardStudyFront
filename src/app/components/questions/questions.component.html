@@ -1,12 +1,12 @@
 <div class="col-md-14 mt-3">
   <h1>{{ page_title }}</h1>
-
+  <small class="text-danger">Commas aren't allowed in the answers input</small>
   <div class="alert alert-success col-md-7" *ngIf="status == 'success'">
     The question has been saved correctly,
   </div>
 
   <div class="alert alert-danger col-md-7" *ngIf="status == 'error'">
-    The modifications couldn't been saved correctly
+    The question hasn't been saved correctly
   </div>
   <!-- Admin Form  -->
   <form
@@ -14,7 +14,7 @@
     #questionForm="ngForm"
     (ngSubmit)="onSubmit(questionForm)"
   >
-    <div class="form-group">
+    <div class="form-group mb-3">
       <label for="question" class="col-form-label">Question</label>
       <input
         type="text"
@@ -31,16 +31,16 @@
         >The Question is not valid</small
       > -->
     </div>
-    <div class="form-group mb-3">
+    <div class="form-group">
       <label for="answer1" class="col-form-label">Answer 1</label>
       <input
         type="text"
         name="answer1"
         class="form-control"
-        #answer1="ngModel"
-        [(ngModel)]="question.answers"
+        #this.answer1="ngModel"
+        [(ngModel)]="answer1"
         required
-        pattern="[a-zA-Z0-9]+"
+        pattern="^[^,]+$"
       />
       <!-- <small
         *ngIf="!answer.valid && answer.touched"
@@ -49,18 +49,18 @@
       > -->
     </div>
 
-    <div class="form-group mb-3">
+    <div class="form-group">
       <label for="answer2" class="col-form-label">Answer 2</label>
       <input
         type="text"
         name="answer2"
         class="form-control"
-        #answer2="ngModel"
-        [(ngModel)]="question.answers"
+        #this.answer2="ngModel"
+        [(ngModel)]="this.answer2"
         required
-        pattern="[a-zA-Z0-9]+"
+        pattern="^[^,]+$"
       />
-      <!-- <small
+      <!-- <small 
         *ngIf="!answer.valid && answer.touched"
         class="invalid-feedback d-block"
         >The email is not valid</small
@@ -73,10 +73,10 @@
         type="text"
         name="answer3"
         class="form-control"
-        #answer3="ngModel"
-        [(ngModel)]="question.answers"
+        #this.answer3="ngModel"
+        [(ngModel)]="this.answer3"
         required
-        pattern="[a-zA-Z0-9]+"
+        pattern="^[^,]+$"
       />
       <!-- <small
         *ngIf="!answer.valid && answer.touched"
@@ -108,11 +108,12 @@
       <select
         name="topic_id"
         class="form-control"
-        #topic="ngModel"
+        #topic_id="ngModel"
         [(ngModel)]="question.topic_id"
         required
         pattern="[a-zA-Z0-9]+"
       >
+        <option>Select</option>
         <option *ngFor="let topic of topics" value="{{ topic.id }}">
           {{ topic.topic_name }}
         </option>
@@ -128,7 +129,7 @@
     <div class="form-group mb-3">
       <input
         type="submit"
-        value="Send"
+        value="Save"
         class="btn btn-success"
         [disabled]="questionForm.invalid"
       />
