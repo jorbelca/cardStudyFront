@@ -8,7 +8,7 @@
   <div class="alert alert-danger col-md-7" *ngIf="status == 'error'">
     The question hasn't been saved correctly
   </div>
-  <!-- Admin Form  -->
+  <!-- Question Form  -->
   <form
     class="col-md-7 ml-0 pl-0"
     #questionForm="ngForm"
@@ -23,7 +23,6 @@
         #question.question="ngModel"
         [(ngModel)]="question.question"
         required
-
       />
       <!-- <small
         *ngIf="!question.valid && question.touched"
@@ -40,7 +39,6 @@
         #this.answer1="ngModel"
         [(ngModel)]="this.answer1"
         required
-        pattern="[a-zA-Z0-9]+"
       />
       <!-- <small
         *ngIf="!answer.valid && answer.touched"
@@ -58,7 +56,6 @@
         #this.answer2="ngModel"
         [(ngModel)]="this.answer2"
         required
-        pattern="[a-zA-Z0-9]+"
       />
       <!-- <small 
         *ngIf="!answer.valid && answer.touched"
@@ -76,7 +73,6 @@
         #this.answer3="ngModel"
         [(ngModel)]="this.answer3"
         required
-        pattern="[a-zA-Z0-9]+"
       />
       <!-- <small
         *ngIf="!answer.valid && answer.touched"
@@ -94,7 +90,6 @@
         #correct_answer="ngModel"
         [(ngModel)]="question.correct_answer"
         required
-        pattern="[a-zA-Z0-9]+"
       />
       <!-- <small
         *ngIf="!answer.valid && answer.touched"
@@ -111,7 +106,6 @@
         #topic_id="ngModel"
         [(ngModel)]="question.topic_id"
         required
-        pattern="[a-zA-Z0-9]+"
       >
         <option>Select</option>
         <option *ngFor="let topic of topics" value="{{ topic.id }}">
