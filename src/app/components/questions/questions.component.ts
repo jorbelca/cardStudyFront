@@ -31,7 +31,7 @@ export class QuestionsComponent implements OnInit {
     private _questionService: QuestionService
   ) {
     this.page_title = 'Add a question'
-    this.question = new Question(0, 0, 0, '', [''], '', 0, 0)
+    this.question = new Question(0, 0, 0, '', 0, 0, 0, '', 0, 0)
 
     this.status = ''
     this.token = this._userService.getToken()
@@ -43,9 +43,10 @@ export class QuestionsComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    this.question.answers = this.answer1 + ',' + this.answer2 + ',' + this.answer3
+    this.question.answer1 = this.answer1
+    this.question.answer2 = this.answer2
+    this.question.answer3 = this.answer3
     this.question.creator_id = this.identity.sub
-    console.log(this.question);
 
 
     this._questionService.save(this.token, this.question).subscribe(

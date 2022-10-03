@@ -4,7 +4,9 @@ export class Question {
     public topic_id: number,
     public creator_id: number,
     public question: string,
-    public answers: any,
+    public answer1: any,
+    public answer2: any,
+    public answer3: any,
     public correct_answer: any,
     public n_correct: number,
     public n_incorrect: number

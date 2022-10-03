@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Question } from 'src/app/models/question';
 import { QuestionService } from 'src/app/services/question.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { QuestionService } from 'src/app/services/question.service';
 export class HomeComponent implements OnInit {
   public page_title: string
   public url: string
-  public questions: [any] = ['']
+  public questions: [Question] = [new Question(0, 0, 0, '', 0, 0, 0, 0, 0, 0)]
 
   constructor(
     private _questionService: QuestionService
@@ -28,8 +29,6 @@ export class HomeComponent implements OnInit {
       response => {
         if (response.status == 'success') {
           this.questions = response.questions
-
-          console.log(this.questions);
 
         }
       }, error => {

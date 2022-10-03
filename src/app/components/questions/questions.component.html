@@ -1,6 +1,6 @@
 <div class="col-md-14 mt-3">
   <h1>{{ page_title }}</h1>
-  <small class="text-danger">Commas aren't allowed in the answers input</small>
+
   <div class="alert alert-success col-md-7" *ngIf="status == 'success'">
     The question has been saved correctly,
   </div>
@@ -23,7 +23,7 @@
         #question.question="ngModel"
         [(ngModel)]="question.question"
         required
-        pattern="[a-zA-Z0-9]+"
+
       />
       <!-- <small
         *ngIf="!question.valid && question.touched"
@@ -38,9 +38,9 @@
         name="answer1"
         class="form-control"
         #this.answer1="ngModel"
-        [(ngModel)]="answer1"
+        [(ngModel)]="this.answer1"
         required
-        pattern="^[^,]+$"
+        pattern="[a-zA-Z0-9]+"
       />
       <!-- <small
         *ngIf="!answer.valid && answer.touched"
@@ -58,7 +58,7 @@
         #this.answer2="ngModel"
         [(ngModel)]="this.answer2"
         required
-        pattern="^[^,]+$"
+        pattern="[a-zA-Z0-9]+"
       />
       <!-- <small 
         *ngIf="!answer.valid && answer.touched"
@@ -76,7 +76,7 @@
         #this.answer3="ngModel"
         [(ngModel)]="this.answer3"
         required
-        pattern="^[^,]+$"
+        pattern="[a-zA-Z0-9]+"
       />
       <!-- <small
         *ngIf="!answer.valid && answer.touched"

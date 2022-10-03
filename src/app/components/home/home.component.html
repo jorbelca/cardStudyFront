@@ -1,4 +1,4 @@
-<div class="loading" *ngIf="questions[0] == ''">Loading ...</div>
+<div class="loading" *ngIf="questions.length < 1">Loading ...</div>
 
 <div class="container-fluid" *ngIf="questions">
   <h1>{{ page_title }}</h1>
@@ -11,7 +11,17 @@
         </h4>
 
         <div class="card-body">
-          
+          <ul>
+            <li>{{ question.answer1 }}</li>
+            <li>{{ question.answer2 }}</li>
+            <li>{{ question.answer3 }}</li>
+            <li>{{ question.correct_answer }}</li>
+          </ul>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="question-btn">
+          <button class="btn btn-success">Answer</button>
         </div>
       </div>
     </article>
